@@ -2,8 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { withPreview } from 'gatsby-source-prismic'
-import Layout from '../components/Layout'
-import BlogPosts from '../components/BlogPosts'
+import { Layout, BlogPosts } from 'components'
+// import Layout from '../components/Layout'
+// import BlogPosts from '../components/BlogPosts'
 
 // Query for the Blog Home content in Prismic
 
@@ -58,13 +59,13 @@ export const query = graphql`
   }
 `
 // Using the queried Blog Home document data, we render the top section
-const ProjectHomeHead = ({ landingPage }) => {
-  const avatar = { backgroundImage: `url(${landingPage.image.url})` }
+const ProjectHomeHead = ({ projectPage }) => {
+  const avatar = { backgroundImage: `url(${projectPage.image.url})` }
   return (
-    <div className="landingPage-header container" data-wio-id={landingPage.id}>
+    <div className="home-header container" data-wio-id={projectPage.id}>
       <div className="blog-avatar" style={avatar} />
-      <h1>{RichText.asText(landingPage.headline)}</h1>
-      <p className="blog-description">{RichText.asText(landingPage.description)}</p>
+      <h1>{RichText.asText(projectPage.headline)}</h1>
+      <p className="blog-description">{RichText.asText(projectPage.description)}</p>
     </div>
   )
 }
@@ -72,13 +73,13 @@ const ProjectHomeHead = ({ landingPage }) => {
 export const projects = ({ data }) => {
   if (!data) return null
   // Define the Blog Home & Blog Post content returned from Prismic
-  // const home = data.prismicProjecthome.data
+  const projectPage = data.prismicProjecthome.data
   const prjx = data.allPrismicProject.edges
   const { prismicNavigation } = data
 
   return (
     <Layout navigation={prismicNavigation}>
-      {/* <ProjectHomeHead home={home} /> */}
+      <ProjectHomeHead projectPage={projectPage} />
       <BlogPosts posts={prjx} />
     </Layout>
   )

@@ -1,4 +1,8 @@
-const { prismicRepo, releaseID, accessToken } = require('./prismic-configuration')
+const {
+  prismicRepo,
+  releaseID,
+  accessToken,
+} = require('./prismic-configuration')
 const linkResolver = require('./src/utils/linkResolver')
 
 const reponame = process.env.PRISMIC_REPO_NAME || prismicRepo

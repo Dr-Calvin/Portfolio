@@ -16,7 +16,7 @@ const Header = ({ isHomepage, navigation }) => {
         <ul>
           {topNav.map((navItem, index) => (
             <li key={`link-${index}`}>
-              <Link to={RichText.asText(navItem.link_label).toLowerCase()}>
+              <Link to={`/${RichText.asText(navItem.link_label).toLowerCase()}`}>
                 {RichText.asText(navItem.link_label)}
               </Link>
             </li>

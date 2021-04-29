@@ -1,62 +1,20 @@
-// import React from 'react'
-// import { graphql } from 'gatsby'
+import React from 'react'
+import { graphql } from 'gatsby'
 // import { RichText } from 'prismic-reactjs'
-// import { withPreview } from 'gatsby-source-prismic'
-// import Layout from '../components/Layout'
+import { withPreview } from 'gatsby-source-prismic'
+import { Layout } from 'components'
+
 // import BlogPosts from '../components/BlogPosts'
 
 // // Query for the Blog Home content in Prismic
 
-// export const query = graphql`
-//   query BlogQuery {
-//     prismicBloghome {
-//       data {
-//         description {
-//           text
-//         }
-//         headline {
-//           text
-//         }
-//         image {
-//           url
-//         }
-//       }
-//       id
-//       type
-//     }
-//     allPrismicPost(sort: { fields: data___date, order: DESC }) {
-//       edges {
-//         node {
-//           url
-//           id
-//           uid
-//           type
-//           data {
-//             title {
-//               raw
-//             }
-//             date
-//             body {
-//               ... on PrismicPostBodyText {
-//                 id
-//                 slice_label
-//                 slice_type
-//                 primary {
-//                   text {
-//                     raw
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     prismicNavigation {
-//       ...HeaderQuery
-//     }
-//   }
-// `
+export const query = graphql`
+  query BlogQuery {
+    prismicNavigation {
+      ...HeaderQuery
+    }
+  }
+`
 // // Using the queried Blog Home document data, we render the top section
 // const BlogHomeHead = ({ home }) => {
 //   const avatar = { backgroundImage: `url(${home.image.url})` }
@@ -69,19 +27,19 @@
 //   )
 // }
 
-// export const blog = ({ data }) => {
-//   if (!data) return null
-//   // Define the Blog Home & Blog Post content returned from Prismic
-//   const home = data.prismicBloghome.data
-//   const posts = data.allPrismicPost.edges
-//   const { prismicNavigation } = data
+export const blog = ({ data }) => {
+  //   if (!data) return null
+  //   // Define the Blog Home & Blog Post content returned from Prismic
+  //   const home = data.prismicBloghome.data
+  //   const posts = data.allPrismicPost.edges
+  const { prismicNavigation } = data
 
-//   return (
-//     <Layout navigation={prismicNavigation}>
-//       <BlogHomeHead home={home} />
-//       <BlogPosts posts={posts} />
-//     </Layout>
-//   )
-// }
+  return (
+    <Layout navigation={prismicNavigation}>
+      {/* <BlogHomeHead home={home} />
+        <BlogPosts posts={posts} /> */}
+    </Layout>
+  )
+}
 
-// export default withPreview(blog)
+export default withPreview(blog)

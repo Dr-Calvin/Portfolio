@@ -2,8 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { withPreview } from 'gatsby-source-prismic'
-import Layout from '../components/Layout'
-import BlogPosts from '../components/BlogPosts'
+import { Layout, BlogPosts } from 'components'
 
 // Query for the Blog Home content in Prismic
 

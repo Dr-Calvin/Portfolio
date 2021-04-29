@@ -31,10 +31,10 @@ const PostSummary = ({ post, id }) => {
   let postDate = Date(post.date)
   postDate = postDate
     ? new Intl.DateTimeFormat('en-US', {
-      month: 'short',
-      day: '2-digit',
-      year: 'numeric',
-    }).format(postDate)
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric',
+      }).format(postDate)
     : ''
 
   // // Default title when post has no title set
@@ -59,7 +59,7 @@ const PostSummary = ({ post, id }) => {
   )
 }
 
-export default ({ posts }) => {
+const BlogPosts = ({ posts }) => {
   if (!posts) return null
   return (
     <div className="blog-posts container">
@@ -69,3 +69,5 @@ export default ({ posts }) => {
     </div>
   )
 }
+
+export default BlogPosts
