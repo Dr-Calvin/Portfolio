@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { withPreview } from 'gatsby-source-prismic'
 import { Layout, BlogPosts } from 'components'
+import waves from '../styles/img/waves.svg'
 
 // Query for the Blog Home content in Prismic
 
@@ -11,10 +12,10 @@ export const query = graphql`
     prismicBloghome {
       data {
         description {
-          text
+          raw
         }
         headline {
-          text
+          raw
         }
         image {
           url
@@ -60,10 +61,12 @@ export const query = graphql`
 const BlogHomeHead = ({ home }) => {
   const avatar = { backgroundImage: `url(${home.image.url})` }
   return (
-    <div className="home-header container" data-wio-id={home.id}>
-      <div className="blog-avatar" style={avatar} />
-      <h1>{RichText.asText(home.headline)}</h1>
-      <p className="blog-description">{RichText.asText(home.description)}</p>
+    <div className="text-red-500 text-center" data-wio-id={home.id}>
+      <div className="h-32 w-32 my-6 mx-auto rounded-full" style={avatar} />
+      <h1 className="text-gray-500">{RichText.asText(home.headline.raw)}</h1>
+      <p className="blog-description">
+        ..{RichText.asText(home.description.raw)}
+      </p>
     </div>
   )
 }
@@ -77,7 +80,8 @@ export const Homepage = ({ data }) => {
 
   return (
     <Layout isHomepage navigation={prismicNavigation}>
-      <BlogHomeHead home={home} />
+      <div className="wave-bg">.</div>
+      <BlogHomeHead className="font-mono" home={home} />
       <BlogPosts posts={posts} />
     </Layout>
   )

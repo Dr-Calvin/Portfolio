@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Footer from '../Footer'
-import '../../stylesheets/main.scss'
+import '../../styles/tailwind.css'
 
 export default (props) => (
   <StaticQuery
@@ -36,7 +36,10 @@ const Layout = ({ data, children }) => {
           rel="stylesheet"
           type="text/css"
         />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
       </Helmet>
       <main>{children}</main>
       <Footer />

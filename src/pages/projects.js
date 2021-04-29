@@ -64,8 +64,10 @@ const ProjectHomeHead = ({ projectPage }) => {
   return (
     <div className="home-header container" data-wio-id={projectPage.id}>
       <div className="blog-avatar" style={avatar} />
-      <h1>{RichText.asText(projectPage.headline)}</h1>
-      <p className="blog-description">{RichText.asText(projectPage.description)}</p>
+      <h3 className="text-red">{RichText.asText(projectPage.headline)}</h3>
+      <p className="blog-description text-red">
+        {RichText.asText(projectPage.description)}
+      </p>
     </div>
   )
 }

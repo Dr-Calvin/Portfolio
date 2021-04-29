@@ -10,7 +10,7 @@ const PreviewPage = ({ isPreview }) => {
   return <p>Loading</p>
 }
 
-const preview = (props) => {
+export default (props) => {
   const data = useStaticQuery(graphql`
     query {
       sitePlugin(name: { eq: "gatsby-source-prismic" }) {
@@ -23,7 +23,6 @@ const preview = (props) => {
   const { repositoryName } = data.sitePlugin.pluginOptions
   return withPreviewResolver(PreviewPage, {
     repositoryName,
-    linkResolver: () => (doc) => linkResolver(doc),
-  })
+    linkResolver: () => linkResolver,
+  })(props)
 }
-export default PreviewPage

@@ -18,11 +18,20 @@
               "label": "link"
             }
           },
-          "link_label": {
+          "url_path": {
             "type": "StructuredText",
             "config": {
               "single": "paragraph",
-              "label": "link_label"
+              "label": "url_path",
+              "placeholder": "info"
+            }
+          },
+          "link_name": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "link_name",
+              "placeholder": "Learn More"
             }
           }
         },

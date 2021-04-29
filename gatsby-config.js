@@ -12,6 +12,7 @@ const prismicReleaseID = process.env.PRISMIC_RELEASE_ID || releaseID
 const bloghomeSchema = require('./custom_types/bloghome.json')
 const postSchema = require('./custom_types/post.json')
 const projectSchema = require('./custom_types/project.json')
+const navigationSchema = require('./custom_types/navigation.json')
 
 const gastbySourcePrismicConfig = {
   resolve: 'gatsby-source-prismic',
@@ -25,6 +26,7 @@ const gastbySourcePrismicConfig = {
       bloghome: bloghomeSchema,
       post: postSchema,
       project: projectSchema,
+      navigation: navigationSchema,
     },
   },
 }
@@ -38,7 +40,12 @@ module.exports = {
   plugins: [
     gastbySourcePrismicConfig,
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`autoprefixer`)],
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
