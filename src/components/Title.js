@@ -1,8 +1,9 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
 
-const Title = ({ title, className }) => {
+const Title = ({ title }) => {
   if (!title) return null
+  console.log(title)
   return (
     <div className="text-red-500 text-center" data-wio-id={title.id}>
       {/* <div className="h-32 w-32 my-6 mx-auto rounded-full" style={avatar} /> */}

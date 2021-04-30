@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { withPreview } from 'gatsby-source-prismic'
-import Layout from '../components/layouts'
+import { Layout } from 'components'
 import { ImageCaption, Quote, Text } from '../components/slices'
 
 // Query for the Blog Post content in Prismic
@@ -59,35 +59,36 @@ export const query = graphql`
 `
 
 // Sort and display the different slice options
-const PostSlices = ({ slices }) => slices.map((slice, index) => {
-  const res = (() => {
-    switch (slice.slice_type) {
-      case 'text':
-        return (
-          <div key={index} className="homepage-slice-wrapper">
-            <Text slice={slice} />
-          </div>
-        )
+const PostSlices = ({ slices }) =>
+  slices.map((slice, index) => {
+    const res = (() => {
+      switch (slice.slice_type) {
+        case 'text':
+          return (
+            <div key={index} className="homepage-slice-wrapper">
+              <Text slice={slice} />
+            </div>
+          )
 
-      case 'quote':
-        return (
-          <div key={index} className="homepage-slice-wrapper">
-            <Quote slice={slice} />
-          </div>
-        )
+        case 'quote':
+          return (
+            <div key={index} className="homepage-slice-wrapper">
+              <Quote slice={slice} />
+            </div>
+          )
 
-      case 'image_with_caption':
-        return (
-          <div key={index} className="homepage-slice-wrapper">
-            <ImageCaption slice={slice} />
-          </div>
-        )
+        case 'image_with_caption':
+          return (
+            <div key={index} className="homepage-slice-wrapper">
+              <ImageCaption slice={slice} />
+            </div>
+          )
 
-      default:
-    }
-  })()
-  return res
-})
+        default:
+      }
+    })()
+    return res
+  })
 
 // Display the title, date, and content of the Post
 const PostBody = ({ blogPost }) => (
@@ -107,7 +108,7 @@ const PostBody = ({ blogPost }) => (
   </div>
 )
 
-export const Post = ({ data }) => {
+const Post = ({ data }) => {
   if (!data) return null
   // Define the Post content returned from Prismic
   const post = data.prismicPost.data

@@ -31866,16 +31866,14 @@ h2 {
   height: 290px;
 }
 
-.wave-bg {
+.bg-wave {
   background: url(./img/waves.svg) left bottom no-repeat;
   background-size: cover;
   height: 450px;
 }
 
-h1 {
-  font-weight: 700;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+.bg-nav {
+  background: linear-gradient(45deg #6460aa, #0089d0);
 }
 
 @media (min-width: 640px) {

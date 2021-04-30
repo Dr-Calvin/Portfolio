@@ -1,7 +1,7 @@
 import React from 'react'
 import { withUnpublishedPreview } from 'gatsby-source-prismic'
-import { Post } from '../templates/post'
-import { Homepage } from './index'
+import Post from '../templates/post'
+import Homepage from './index'
 
 const Page404 = () => (
   <div className="not-found">

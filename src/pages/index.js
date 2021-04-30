@@ -59,15 +59,15 @@ export const query = graphql`
 `
 // Using the queried Blog Home document data, we render the top section
 
-export const Homepage = ({ data }) => {
+const Homepage = ({ data }) => {
   if (!data) return null
   const { prismicNavigation } = data
 
   return (
-    <Layout isHomepage navigation={prismicNavigation}>
-      <p className="text-center py-20 py text-5xl">Coming Soon...</p>
+    <Layout isHomepage waves="true" navigation={prismicNavigation}>
+      <p className="text-center py-20 py text-5xl">Coming Soon....</p>
     </Layout>
   )
 }
 
-export default Homepage
+export default withPreview(Homepage)

@@ -13,13 +13,10 @@ export const query = graphql`
     prismicProjecthome {
       data {
         description {
-          text
+          raw
         }
         headline {
-          text
-        }
-        image {
-          url
+          raw
         }
       }
       id
@@ -59,32 +56,21 @@ export const query = graphql`
   }
 `
 // Using the queried Blog Home document data, we render the top section
-const ProjectHomeHead = ({ projectPage }) => {
-  const avatar = { backgroundImage: `url(${projectPage.image.url})` }
-  return (
-    <div className="home-header container" data-wio-id={projectPage.id}>
-      <div className="blog-avatar" style={avatar} />
-      <h3 className="text-red">{RichText.asText(projectPage.headline)}</h3>
-      <p className="blog-description text-red">
-        {RichText.asText(projectPage.description)}
-      </p>
-    </div>
-  )
-}
 
-export const projects = ({ data }) => {
+const Projects = ({ data }) => {
   if (!data) return null
-  // Define the Blog Home & Blog Post content returned from Prismic
+  // Define the Project Home page & Project post content returned from Prismic
   const projectPage = data.prismicProjecthome.data
   const prjx = data.allPrismicProject.edges
   const { prismicNavigation } = data
 
   return (
-    <Layout navigation={prismicNavigation}>
-      <ProjectHomeHead projectPage={projectPage} />
-      <BlogPosts posts={prjx} />
+    <Layout title={projectPage} waves="true" navigation={prismicNavigation}>
+      <div className="xl:container mx-auto px-4">
+        <BlogPosts posts={prjx} />
+      </div>
     </Layout>
   )
 }
 
-export default withPreview(projects)
+export default withPreview(Projects)

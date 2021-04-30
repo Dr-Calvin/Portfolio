@@ -1,18 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import logo from '../images/brand2.svg'
 
 const Header = ({ isHomepage, navigation }) => {
   const [showToggle, setShowToggle] = useState(false)
+  const [navColor, setNavColor] = useState('bg-nav')
+
+  useEffect(() => {
+    window.onscroll = () => {
+      setNavColor(
+        window.pageYOffset > 300 ? 'bg-opacity-80 bg-gray-500 sticky' : 'bg-nav'
+      )
+    }
+  }, [])
 
   if (!navigation) return null
   const homepageClass = isHomepage ? 'text-red-500' : ''
   const topNav = navigation.data.top_navigation
 
   return (
-    <header className={`site-header sticky top-0 z-50 ${homepageClass} `}>
-      <nav className="flex flex-wrap items-center justify-between p-5 bg-blue-200 xl:px-20">
+    <header
+      className={`site-header ${navColor} top-0 z-50 transition
+  ${homepageClass} `}
+    >
+      <nav
+        className={`flex flex-wrap items-center justify-between p-5  xl:px-20`}
+      >
         <Link to="/">
           <img className="-mt-3  logo w-64" src={logo} alt="Website" />
         </Link>

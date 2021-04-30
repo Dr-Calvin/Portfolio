@@ -31,9 +31,16 @@
   .h-290 {
     height: 290px;
   }
-  .wave-bg {
+  .bg-wave {
     background: url(./img/waves.svg) left bottom no-repeat;
     background-size: cover;
     height: 450px;
+  }
+  .bg-nav {
+    background: linear-gradient(
+      45deg,
+      rgba(100, 96, 170, 0.7),
+      rgba(0, 137, 208, 0.7)
+    );
   }
 }

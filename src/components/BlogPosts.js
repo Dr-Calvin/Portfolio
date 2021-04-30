@@ -40,8 +40,8 @@ const PostSummary = ({ post, id }) => {
   // // Default title when post has no title set
   const defaultTitle = 'Untitled'
   return (
-    <div className="post-summary" key={id}>
-      <h2>
+    <div className="post-summary mb-12" key={id}>
+      <h2 className="text-2xl">
         {/* We render a link to a particular post
          * using the linkResolver for the url and its title */}
         <Link to={post.node.url}>
@@ -62,7 +62,7 @@ const PostSummary = ({ post, id }) => {
 const BlogPosts = ({ posts }) => {
   if (!posts) return null
   return (
-    <div className="blog-posts container">
+    <div className=" container">
       {posts.map((post) => (
         <PostSummary post={post} key={post.node.id} />
       ))}

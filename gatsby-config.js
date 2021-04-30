@@ -10,6 +10,7 @@ const apiKey = process.env.PRISMIC_API_KEY || accessToken
 const prismicReleaseID = process.env.PRISMIC_RELEASE_ID || releaseID
 
 const bloghomeSchema = require('./custom_types/bloghome.json')
+const projecthomeSchema = require('./custom_types/projecthome.json')
 const postSchema = require('./custom_types/post.json')
 const projectSchema = require('./custom_types/project.json')
 const navigationSchema = require('./custom_types/navigation.json')
@@ -24,6 +25,7 @@ const gastbySourcePrismicConfig = {
     linkResolver: () => (doc) => linkResolver(doc),
     schemas: {
       bloghome: bloghomeSchema,
+      projecthome: projecthomeSchema,
       post: postSchema,
       project: projectSchema,
       navigation: navigationSchema,

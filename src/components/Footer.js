@@ -5,28 +5,18 @@ import prismicLogo from '../images/logo-prismic.svg'
 
 const Footer = () => (
   <footer className="flex-shrink-0 mt-8">
-    <figure className="md:flex bg-gray-100 rounded-xl p-8 md:p-0 object-bottom">
+    <figure className="md:flex bg-gray-100 mt-6 rounded-xl object-bottom">
       <img
-        className="w-32 h-32 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
+        className="w-16 pt-6 h-auto my-8 mx-auto"
         src={prismicLogo}
         alt=""
-        width="384"
-        height="512"
+        width="80"
+        height="80"
       />
-      <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
+      <div className="text-center md:text-left my-auto">
         <blockquote>
-          <p className="text-lg font-semibold">
-            “Tailwind CSS is the only framework that I've seen scale on large
-            teams. It’s easy to customize, adapts to any design, and the build
-            size is tiny.”
-          </p>
+          <p className="text-lg font-semibold">Powered by Prismic</p>
         </blockquote>
-        <figcaption className="font-medium">
-          <div className="text-cyan-600">Sarah Dayan</div>
-          <div className="text-</figcaption>gray-500">
-            Staff Engineer, Algolia
-          </div>
-        </figcaption>
       </div>
     </figure>
   </footer>

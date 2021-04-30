@@ -59,7 +59,7 @@ export const query = graphql`
 `
 // Using the queried Blog Home document data, we render the top section
 
-export const blog = ({ data }) => {
+const Blog = ({ data }) => {
   if (!data) return null
   // Define the Blog Home & Blog Post content returned from Prismic
   const titleInfo = data.prismicBloghome.data
@@ -67,13 +67,12 @@ export const blog = ({ data }) => {
   const { prismicNavigation } = data
 
   return (
-    <Layout title={titleInfo} navigation={prismicNavigation}>
+    <Layout waves="true" title={titleInfo} navigation={prismicNavigation}>
       <div className="xl:container mx-auto px-4">
-        {/* <BlogHomeHead className="font-mono" home={home} /> */}
         <BlogPosts posts={posts} />
       </div>
     </Layout>
   )
 }
 
-export default blog
+export default withPreview(Blog)
