@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Footer from '../Footer'
-import '../../styles/tailwind.css'
+import '../../styles/global.css'
 
 export default (props) => (
   <StaticQuery

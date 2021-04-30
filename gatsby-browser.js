@@ -1,5 +1,5 @@
 import * as React from 'react'
-import './tailwind.css'
+import './src/styles/tailwind.css'
 
 import { PreviewStoreProvider } from 'gatsby-source-prismic'
 

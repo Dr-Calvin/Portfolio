@@ -7,18 +7,14 @@ const Header = ({ isHomepage, navigation }) => {
   const [showToggle, setShowToggle] = useState(false)
 
   if (!navigation) return null
-  const homepageClass = isHomepage ? 'text-red' : ''
+  const homepageClass = isHomepage ? 'text-red-500' : ''
   const topNav = navigation.data.top_navigation
-  const capitalize = (s) => {
-    if (typeof s !== 'string') return ''
-    return s.charAt(0).toUpperCase() + s.slice(1)
-  }
 
   return (
-    <header className={`site-header ${homepageClass}`}>
-      <nav className="flex flex-wrap items-center justify-between p-5 bg-blue-200">
+    <header className={`site-header sticky top-0 z-50 ${homepageClass} `}>
+      <nav className="flex flex-wrap items-center justify-between p-5 bg-blue-200 xl:px-20">
         <Link to="/">
-          <img className="logo w-64" src={logo} alt="Website" />
+          <img className="-mt-3  logo w-64" src={logo} alt="Website" />
         </Link>
         <div className="flex md:hidden">
           <button id="hamburger" onClick={() => setShowToggle(!showToggle)}>
@@ -39,14 +35,17 @@ const Header = ({ isHomepage, navigation }) => {
         <ul
           className={`${
             showToggle ? '' : 'hidden'
-          } md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 border-t-2 border-blue-900 md:border-none`}
+          } md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 `}
         >
           {topNav.map((navItem, index) => (
             <li
-              className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none"
+              className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-transparent md:hover:border-blue-900"
               key={`link-${index}`}
             >
-              <Link to={`/${RichText.asText(navItem.url_path.raw)}`}>
+              <Link
+                to={`/${RichText.asText(navItem.url_path.raw)}`}
+                className="hover:border-b-2 hover:border-red-300"
+              >
                 {RichText.asText(navItem.link_name.raw)}
               </Link>
             </li>

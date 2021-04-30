@@ -39,8 +39,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "tailwind": "tailwindcss build tailwind.css -o src/styles/tailwind.css",
-    "tailwind:watch": "tailwindcss build tailwind.css -o src/styles/tailwind.css --watch",
+    "tailwind": "tailwindcss build src/styles/tailwind.css -o src/styles/global.css",
+    "tailwind:watch": "tailwindcss build src/styles/tailwind.css -o src/styles/global.css --watch",
     "build": "gatsby build",
     "develop": "gatsby develop && tailwind:watch",
     "start": "npm run clean && npm run develop",
