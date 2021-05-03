@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://https://tailwindcss.com/">
-    <img alt="TailwindCSS" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?&style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+    <img alt="TailwindCSS" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?&style=flat-square"/>
   </a>
   <a href="https://github.com/prettier/prettier">
     <img
