@@ -55,6 +55,9 @@ export const query = graphql`
         }
       }
     }
+    prismicNavigation {
+      ...HeaderQuery
+    }
   }
 `
 
@@ -94,10 +97,11 @@ const PostSlices = ({ slices }) =>
 const PostBody = ({ blogPost }) => (
   <div>
     <div className="container post-header">
-      <div className="back">
+      <div className="back underline lg:-ml-8 ">
         <Link to="/blog">back to list</Link>
       </div>
-      <h1>
+      <br />
+      <h1 className="text-3xl font-sans text-gray-900 mb-12">
         {RichText.asText(blogPost.title.raw).length !== 0
           ? RichText.asText(blogPost.title.raw)
           : 'Untitled'}
@@ -112,9 +116,10 @@ const Post = ({ data }) => {
   if (!data) return null
   // Define the Post content returned from Prismic
   const post = data.prismicPost.data
+  const { prismicNavigation } = data
 
   return (
-    <Layout>
+    <Layout navigation={prismicNavigation}>
       <PostBody blogPost={post} />
     </Layout>
   )

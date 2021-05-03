@@ -62,10 +62,37 @@ export const query = graphql`
 const Homepage = ({ data }) => {
   if (!data) return null
   const { prismicNavigation } = data
+  const title = {
+    headline: {
+      raw: [
+        {
+          text: `Hello, my name is Mitch and I'm a freelance developer/ IT
+        Specialist, based in Birmingham, UK.`,
+        },
+      ],
+    },
+    description: { raw: [{ text: '' }] },
+  }
 
   return (
-    <Layout isHomepage waves="true" navigation={prismicNavigation}>
-      <p className="text-center py-20 py text-5xl">Coming Soon....</p>
+    <Layout
+      isHomepage
+      title={title}
+      waves="true"
+      navigation={prismicNavigation}
+    >
+      <p className=" py-20 py text-xl">
+        I am currently available to take on exciting projects. See my previous
+        work history on{' '}
+        <a
+          className="underline text-blue-300"
+          href="https://linkedin.com/in/mitchelfollett"
+        >
+          LinkedIn.
+        </a>{' '}
+        I&apos;d love to get get to know you over a brew, so don’t hesitate to
+        get in touch.
+      </p>
     </Layout>
   )
 }

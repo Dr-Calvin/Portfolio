@@ -9,6 +9,7 @@ export default ({ slice }) => (
         render={slice.primary.text.raw || []}
         serializeHyperlink={GatsbyLink}
       />
+      <br />
     </div>
   </div>
 )

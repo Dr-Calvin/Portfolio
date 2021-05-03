@@ -47,6 +47,9 @@ export const query = graphql`
         }
       }
     }
+    prismicNavigation {
+      ...HeaderQuery
+    }
   }
 `
 
@@ -97,9 +100,10 @@ const Project = ({ data }) => {
   if (!data) return null
   // Define the Post content returned from Prismic
   const project = data.prismicProject.data
+  const { prismicNavigation } = data
 
   return (
-    <Layout>
+    <Layout navigation={prismicNavigation}>
       <ProjectBody devProject={project} />
     </Layout>
   )

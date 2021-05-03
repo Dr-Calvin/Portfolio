@@ -1,3 +1,8 @@
+require('dotenv').config({
+  path: `.env`,
+})
+
+const config = require('./config/website')
 const {
   prismicRepo,
   releaseID,
@@ -25,19 +30,27 @@ const gastbySourcePrismicConfig = {
     linkResolver: () => (doc) => linkResolver(doc),
     schemas: {
       bloghome: bloghomeSchema,
+      contact: bloghomeSchema,
+      navigation: navigationSchema,
       projecthome: projecthomeSchema,
       post: postSchema,
       project: projectSchema,
-      navigation: navigationSchema,
     },
   },
 }
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Prismic Blog',
-    description: 'Blog example for Gatsby & Prismic',
-    author: '@levimykel',
+    siteTitle: config.siteTitle,
+    siteTitleAlt: config.siteTitleAlt,
+    siteDescription: config.siteDescription,
+    siteShortName: config.siteShortName,
+    siteUrl: config.siteUrl,
+    siteLogo: config.siteLogo,
+    siteLogoSmall: config.siteLogoSmall,
+    siteBanner: config.siteBanner,
+    siteBannerWidth: config.siteBannerWidth,
+    siteBannerHeight: config.siteBannerHeight,
   },
   plugins: [
     gastbySourcePrismicConfig,
@@ -51,15 +64,16 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: config.siteTitle,
+        short_name: config.siteShortName,
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
+        icon: 'src/images/favicons/android-chrome-192x192.png', // This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-offline',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

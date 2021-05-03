@@ -41,7 +41,7 @@ const PostSummary = ({ post, id }) => {
   const defaultTitle = 'Untitled'
   return (
     <div className="post-summary mb-12" key={id}>
-      <h2 className="text-2xl">
+      <h2 className="text-3xl  font-sans text-gray-900">
         {/* We render a link to a particular post
          * using the linkResolver for the url and its title */}
         <Link to={post.node.url}>

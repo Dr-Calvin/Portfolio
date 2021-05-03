@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import logo from '../images/brand2.svg'
+import open from '../images/open-window.png'
+import close from '../images/close-window.png'
 
 const Header = ({ isHomepage, navigation }) => {
   const [showToggle, setShowToggle] = useState(false)
-  const [navColor, setNavColor] = useState('bg-nav')
+  const [navColor, setNavColor] = useState('bg-nav py-2')
 
   useEffect(() => {
     window.onscroll = () => {
       setNavColor(
-        window.pageYOffset > 300 ? 'bg-opacity-80 bg-gray-500 sticky' : 'bg-nav'
+        window.pageYOffset > 300
+          ? 'py-0 bg-opacity-70 bg-gray-500 sticky '
+          : 'bg-nav py-2'
       )
     }
   }, [])
@@ -25,22 +29,22 @@ const Header = ({ isHomepage, navigation }) => {
   ${homepageClass} `}
     >
       <nav
-        className={`flex flex-wrap items-center justify-between p-5  xl:px-20`}
+        className={`flex flex-wrap items-center px-5 justify-between xl:px-20`}
       >
-        <Link to="/">
+        <Link aria-label="Mitch, Back to homepage" to="/">
           <img className="-mt-3  logo w-64" src={logo} alt="Website" />
         </Link>
         <div className="flex md:hidden">
           <button id="hamburger" onClick={() => setShowToggle(!showToggle)}>
             <img
               className={showToggle ? 'hidden' : 'block'}
-              src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png"
+              src={open}
               width="40"
               height="40"
             />
             <img
               className={showToggle ? '' : 'hidden'}
-              src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png"
+              src={close}
               width="40"
               height="40"
             />
@@ -49,17 +53,14 @@ const Header = ({ isHomepage, navigation }) => {
         <ul
           className={`${
             showToggle ? '' : 'hidden'
-          } md:flex w-full md:w-auto text-right text-bold mt-5 md:mt-0 `}
+          } md:flex w-full md:w-auto text-right text-bold mt-0 `}
         >
           {topNav.map((navItem, index) => (
             <li
-              className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-transparent md:hover:border-blue-900"
+              className="block md:inline-block transition-all text-white hover:text-gray-300 px-3 py-3 border-b-2 border-transparent md:hover:border-blue-900"
               key={`link-${index}`}
             >
-              <Link
-                to={`/${RichText.asText(navItem.url_path.raw)}`}
-                className="hover:border-b-2 hover:border-red-300"
-              >
+              <Link to={`/${RichText.asText(navItem.url_path.raw)}`}>
                 {RichText.asText(navItem.link_name.raw)}
               </Link>
             </li>

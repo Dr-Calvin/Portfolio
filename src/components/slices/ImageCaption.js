@@ -6,13 +6,14 @@ const DefaultImage = ({ slice }) => (
   <div className="post-image container">
     <figcaption className="block-img">
       <img src={slice.primary.image.url} alt={slice.primary.image.alt} />
-      {slice.primary.caption
-      && RichText.asText(slice.primary.caption.raw) !== '' ? (
-        <figcaption className="image-label">
+      {slice.primary.caption &&
+      RichText.asText(slice.primary.caption.raw) !== '' ? (
+        <figcaption className="image-label italic text-xs">
           {RichText.asText(slice.primary.caption.raw)}
         </figcaption>
-        ) : null}
+      ) : null}
     </figcaption>
+    <br />
   </div>
 )
 
@@ -21,38 +22,20 @@ const EmphasizedImage = ({ slice }) => (
   <div className="post-image container">
     <figcaption className="block-img emphasized">
       <img src={slice.primary.image.url} alt={slice.primary.image.alt} />
-      {slice.primary.caption
-      && RichText.asText(slice.primary.caption.raw) !== '' ? (
-        <figcaption className="image-label">
+      {slice.primary.caption &&
+      RichText.asText(slice.primary.caption.raw) !== '' ? (
+        <figcaption className="image-label italic text-xs">
           {RichText.asText(slice.primary.caption.raw)}
         </figcaption>
-        ) : null}
+      ) : null}
     </figcaption>
-  </div>
-)
-
-// Full Width Image
-const FullWidthImage = ({ slice }) => (
-  <div
-    className="post-image full-width-image"
-    style={{ backgroundImage: `url(${slice.primary.image.url})` }}
-  >
-    <div className="wrapper">
-      {slice.primary.caption
-      && RichText.asText(slice.primary.caption.raw) !== '' ? (
-        <span className="image-label">
-          {RichText.asText(slice.primary.caption.raw)}
-        </span>
-        ) : null}
-    </div>
+    <br />
   </div>
 )
 
 // Function to determine the image type
 const renderSwitch = (slice) => {
   switch (slice.slice_label) {
-    case 'image-full-width':
-      return <FullWidthImage slice={slice} />
     case 'emphasized':
       return <EmphasizedImage slice={slice} />
     default:
