@@ -1,9 +1,6 @@
 <p align="center">
-  <a href="https://app.netlify.com/sites/lekoarts/deploys">
-    <img
-      src="https://api.netlify.com/api/v1/badges/279adfbe-dd11-487c-9ab9-cecc21fc4d69/deploy-status"
-      alt="Netlify"
-    />
+  <a href="https://https://tailwindcss.com/">
+    <img alt="TailwindCSS" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?&style=for-the-badge&logo=tailwind-css&logoColor=white"/>
   </a>
   <a href="https://github.com/prettier/prettier">
     <img
