@@ -3,10 +3,6 @@ import './src/styles/tailwind.css'
 
 import { PreviewStoreProvider } from 'gatsby-source-prismic'
 
-const wrapRootElement = ({ element }) => (
-  <PreviewStoreProvider initialEnabled>{element}</PreviewStoreProvider>
-)
-
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
     `This application has been updated. ` +
@@ -17,4 +13,6 @@ export const onServiceWorkerUpdateReady = () => {
   }
 }
 
-export default wrapRootElement
+export const wrapRootElement = ({ element }) => (
+  <PreviewStoreProvider initialEnabled={true}>{element}</PreviewStoreProvider>
+)

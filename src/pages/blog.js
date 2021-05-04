@@ -35,6 +35,9 @@ export const query = graphql`
             title {
               raw
             }
+            subtitle {
+              raw
+            }
             date
             body {
               ... on PrismicPostBodyText {

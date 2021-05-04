@@ -8,7 +8,13 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extends: {},
+    extend: {
+      fontFamily: {},
+      colors: {
+        'regal-blue': '#243c5a',
+        bly: '#0089d0',
+      },
+    },
   },
   variants: {
     extend: {},

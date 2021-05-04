@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { withPreview } from 'gatsby-source-prismic'
 import { Layout, BlogPosts } from 'components'
+import PostPreview from '../components/PostPreview'
+import ContactCard from '../components/ContactCard'
 // import Layout from '../components/Layout'
 // import BlogPosts from '../components/BlogPosts'
 
@@ -31,6 +33,9 @@ export const query = graphql`
           type
           data {
             title {
+              raw
+            }
+            subtitle {
               raw
             }
             date
@@ -68,6 +73,9 @@ const Projects = ({ data }) => {
     <Layout title={projectPage} waves="true" navigation={prismicNavigation}>
       <div className="xl:container mx-auto px-4">
         <BlogPosts posts={prjx} />
+        <PostPreview />
+        <PostPreview />
+        {/* <ContactCard title={prjx[0].node.data.date} /> */}
       </div>
     </Layout>
   )

@@ -15,6 +15,13 @@
         "placeholder": "Project Title..."
       }
     },
+    "subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Subtitle"
+      }
+    },
     "date": {
       "type": "Date",
       "config": {

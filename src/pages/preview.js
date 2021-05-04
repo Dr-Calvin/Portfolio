@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { withPreview, withPreviewResolver } from 'gatsby-source-prismic'
+import { withPreviewResolver } from 'gatsby-source-prismic'
 import { graphql, useStaticQuery } from 'gatsby'
+
 import linkResolver from '../utils/linkResolver'
 
 const PreviewPage = ({ isPreview }) => {
@@ -22,8 +23,7 @@ const Preview = (props) => {
   const { repositoryName } = data.sitePlugin.pluginOptions
   return withPreviewResolver(PreviewPage, {
     repositoryName,
-    linkResolver: () => linkResolver,
+    linkResolver: () => (doc) => linkResolver(doc),
   })(props)
 }
-
-export default withPreview(Preview)
+export default Preview

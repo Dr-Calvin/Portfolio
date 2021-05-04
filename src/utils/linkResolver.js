@@ -11,6 +11,18 @@ const linkResolver = (doc) => {
     return `/projects/${doc.uid}`
   }
 
+  if (doc.type === 'projecthome') {
+    return `/projects`
+  }
+
+  if (doc.type === 'bloghome') {
+    return `/blog`
+  }
+
+  if (doc.type === 'contact') {
+    return `/contact`
+  }
+
   return '/'
 }
 

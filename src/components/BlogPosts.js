@@ -30,15 +30,16 @@ const PostSummary = ({ post, id }) => {
   // Store and format the blog post's publication date
   let postDate = Date(post.date)
   postDate = postDate
-    ? new Intl.DateTimeFormat('en-US', {
-        month: 'short',
+    ? new Intl.DateTimeFormat('en-UK', {
         day: '2-digit',
+        month: 'short',
         year: 'numeric',
       }).format(postDate)
     : ''
 
   // // Default title when post has no title set
   const defaultTitle = 'Untitled'
+  const defaultsubtitle = ''
   return (
     <div className="post-summary mb-12" key={id}>
       <h2 className="text-3xl  font-sans text-gray-900">
@@ -50,6 +51,12 @@ const PostSummary = ({ post, id }) => {
             : defaultTitle}
         </Link>
       </h2>
+      <h3>
+        {' '}
+        {RichText.asText(post.node.data.subtitle.raw).length !== 0
+          ? RichText.asText(post.node.data.subtitle.raw)
+          : defaultsubtitle}
+      </h3>
       <p className="blog-post-meta">
         <time>{postDate}</time>
       </p>

@@ -19,6 +19,9 @@ export const query = graphql`
         title {
           raw
         }
+        subtitle {
+          raw
+        }
         body {
           ... on PrismicPostBodyText {
             slice_label

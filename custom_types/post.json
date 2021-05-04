@@ -15,6 +15,13 @@
         "placeholder": "Blog Post Title..."
       }
     },
+    "subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Subtitle"
+      }
+    },
     "date": {
       "type": "Date",
       "config": {
@@ -47,7 +54,7 @@
               "text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading2, heading3, strong, em, hyperlink, embed, list-item, o-list-item, o-list-item",
+                  "multi": "paragraph,preformatted,heading2,heading3,strong,em,hyperlink,embed,list-item,o-list-item,o-list-item",
                   "allowTargetBlank": true,
                   "label": "Text",
                   "placeholder": "Post text..."

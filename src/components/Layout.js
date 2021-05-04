@@ -11,7 +11,7 @@ const Layout = ({ isHomepage, children, navigation, footer, title, waves }) => (
     <div className={waves ? 'bg-wave' : ''}>
       <Title title={title} className="my-32" />
     </div>
-    <div className="container mt-8 mx-auto px-4 max-w-4xl flex-grow pb-12">
+    <div className="container mt-8 mx-auto px-4 max-w-7xl flex-grow pb-12">
       {children}
     </div>
     <Footer footer={footer} />

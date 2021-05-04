@@ -23,9 +23,7 @@ const navigationSchema = require('./custom_types/navigation.json')
 const gastbySourcePrismicConfig = {
   resolve: 'gatsby-source-prismic',
   options: {
-    repositoryName: reponame,
-    accessToken: apiKey,
-    releaseID: prismicReleaseID,
+    repositoryName: 'mitch-portfolio',
     prismicToolbar: true,
     linkResolver: () => (doc) => linkResolver(doc),
     schemas: {
@@ -83,5 +81,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    'gatsby-plugin-netlify',
   ],
 }
