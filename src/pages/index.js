@@ -57,37 +57,6 @@ export const query = graphql`
 `
 // Using the queried Blog Home document data, we render the top section
 
-const links = [
-  {
-    text: 'UI/UX DESIGN',
-    url: 'https://www.gatsbyjs.com/docs/how-to/',
-    description:
-      "UI/UX involves planning and iterating a site's structure and layout. Once the proper information architecture is in place, I design the visual layer to create a beautiful user experience.",
-    color: '#1099A8',
-  },
-  {
-    text: 'FRONT END DEVELOPMENT',
-    url: 'https://www.gatsbyjs.com/docs/reference/',
-    description:
-      "Front End Development is building out the visual components of a website. Using HTML, CSS , and Javascript, I build fast, interactive websites. This also may include a CMS, API's or other integrations.",
-    color: '#BC027F',
-  },
-  {
-    text: 'PRODUCT DEVELOPMENT',
-    url: 'https://www.gatsbyjs.com/docs/conceptual/',
-    description:
-      'The work that I am most interested in is 0-1 work (helping you get your idea into the world). A recent example of this is Omelo a proof of concept that I built end to end (UI, back end business logic etc).',
-    color: '#0D96F2',
-  },
-  {
-    text: 'Plugin Library',
-    url: 'https://www.gatsbyjs.com/plugins',
-    description:
-      'Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.',
-    color: '#8EB814',
-  },
-]
-
 const Homepage = ({ data }) => {
   if (!data) return null
   const { prismicNavigation } = data
@@ -104,39 +73,26 @@ const Homepage = ({ data }) => {
   }
 
   return (
-    <Layout
-      isHomepage
-      title={title}
-      waves="true"
-      navigation={prismicNavigation}
-    >
-      <p className=" py-20 py text-xl">
-        I am currently available to take on exciting projects. See my previous
-        work history on{' '}
-        <a
-          className="underline text-blue-300"
-          href="https://linkedin.com/in/mitchelfollett"
-        >
-          LinkedIn.
-        </a>{' '}
-        I&apos;d love to get get to know you over a brew, so don’t hesitate to
-        get in touch.
-      </p>
-
-      <h1 className="text-xl">My Specialities:</h1>
-      <ul>
-        <li />
-        {links.map((link) => (
-          <li className="my-4" key={link.url}>
-            <span>
-              <a className="capitalize text-bly" href={`${link.url}`}>
-                {link.text}
-              </a>
-              <p className="ml-8">{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
+    <Layout isHomepage title={title} waves="true" navigation={prismicNavigation}>
+      <div>Project Examples</div>
+      <div>Project text</div>
+      <button
+        type="button"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+      >
+        Projects
+      </button>
+      <div>Blog Article Previews</div>
+      <div>
+        I enjoy writing about the design process and many other topics, you can read some articles
+        in my blog.
+      </div>
+      <button
+        type="button"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+      >
+        Blog
+      </button>
     </Layout>
   )
 }

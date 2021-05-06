@@ -11,11 +11,7 @@ const Header = ({ isHomepage, navigation }) => {
 
   useEffect(() => {
     window.onscroll = () => {
-      setNavColor(
-        window.pageYOffset > 300
-          ? 'py-0 bg-opacity-70 bg-gray-500 sticky '
-          : 'bg-nav py-2'
-      )
+      setNavColor(window.pageYOffset > 300 ? 'py-0  bg-gray-500 sticky ' : 'bg-nav py-2')
     }
   }, [])
 
@@ -25,24 +21,24 @@ const Header = ({ isHomepage, navigation }) => {
 
   return (
     <header
-      className={`site-header ${navColor} top-0 z-50 transition
+      className={`site-header absolute w-full ${navColor} bg-opacity-70 top-0 z-50 transition
   ${homepageClass} `}
     >
-      <nav
-        className={`flex flex-wrap items-center px-5 justify-between xl:px-20`}
-      >
-        <Link aria-label="Mitch, Back to homepage" to="/">
+      <nav className="flex flex-wrap items-center px-5 justify-between xl:px-20">
+        <Link to="/">
           <img className="-mt-3  logo w-64" src={logo} alt="Website" />
         </Link>
         <div className="flex md:hidden">
-          <button id="hamburger" onClick={() => setShowToggle(!showToggle)}>
+          <button id="hamburger" type="button" onClick={() => setShowToggle(!showToggle)}>
             <img
+              alt="o"
               className={showToggle ? 'hidden' : 'block'}
               src={open}
               width="40"
               height="40"
             />
             <img
+              alt="x"
               className={showToggle ? '' : 'hidden'}
               src={close}
               width="40"
@@ -58,6 +54,7 @@ const Header = ({ isHomepage, navigation }) => {
           {topNav.map((navItem, index) => (
             <li
               className="block md:inline-block transition-all text-white hover:text-gray-300 px-3 py-3 border-b-2 border-transparent md:hover:border-blue-900"
+              // eslint-disable-next-line react/no-array-index-key
               key={`link-${index}`}
             >
               <Link to={`/${RichText.asText(navItem.url_path.raw)}`}>

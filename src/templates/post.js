@@ -1,9 +1,7 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
+import { graphql } from 'gatsby'
 import { withPreview } from 'gatsby-source-prismic'
-import { Layout } from 'components'
-import { ImageCaption, Quote, Text } from '../components/slices'
+import { Layout, PostBody } from 'components'
 
 // Query for the Blog Post content in Prismic
 export const query = graphql`
@@ -65,55 +63,8 @@ export const query = graphql`
 `
 
 // Sort and display the different slice options
-const PostSlices = ({ slices }) =>
-  slices.map((slice, index) => {
-    const res = (() => {
-      switch (slice.slice_type) {
-        case 'text':
-          return (
-            <div key={index} className="homepage-slice-wrapper">
-              <Text slice={slice} />
-            </div>
-          )
-
-        case 'quote':
-          return (
-            <div key={index} className="homepage-slice-wrapper">
-              <Quote slice={slice} />
-            </div>
-          )
-
-        case 'image_with_caption':
-          return (
-            <div key={index} className="homepage-slice-wrapper">
-              <ImageCaption slice={slice} />
-            </div>
-          )
-
-        default:
-      }
-    })()
-    return res
-  })
 
 // Display the title, date, and content of the Post
-const PostBody = ({ blogPost }) => (
-  <div>
-    <div className="container post-header">
-      <div className="back underline lg:-ml-8 ">
-        <Link to="/blog">back to list</Link>
-      </div>
-      <br />
-      <h1 className="text-3xl font-sans text-gray-900 mb-12">
-        {RichText.asText(blogPost.title.raw).length !== 0
-          ? RichText.asText(blogPost.title.raw)
-          : 'Untitled'}
-      </h1>
-    </div>
-    {/* Go through the slices of the post and render the appropiate one */}
-    <PostSlices slices={blogPost.body} />
-  </div>
-)
 
 const Post = ({ data }) => {
   if (!data) return null

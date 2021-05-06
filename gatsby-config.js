@@ -3,15 +3,13 @@ require('dotenv').config({
 })
 
 const config = require('./config/website')
-const {
-  prismicRepo,
-  releaseID,
-  accessToken,
-} = require('./prismic-configuration')
+const { prismicRepo, releaseID, accessToken } = require('./prismic-configuration')
 const linkResolver = require('./src/utils/linkResolver')
 
 const reponame = process.env.PRISMIC_REPO_NAME || prismicRepo
+// eslint-disable-next-line no-unused-vars
 const apiKey = process.env.PRISMIC_API_KEY || accessToken
+// eslint-disable-next-line no-unused-vars
 const prismicReleaseID = process.env.PRISMIC_RELEASE_ID || releaseID
 
 const bloghomeSchema = require('./custom_types/bloghome.json')
@@ -23,7 +21,7 @@ const navigationSchema = require('./custom_types/navigation.json')
 const gastbySourcePrismicConfig = {
   resolve: 'gatsby-source-prismic',
   options: {
-    repositoryName: 'mitch-portfolio',
+    repositoryName: reponame,
     prismicToolbar: true,
     linkResolver: () => (doc) => linkResolver(doc),
     schemas: {
@@ -56,6 +54,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
+        // eslint-disable-next-line global-require
         postCssPlugins: [require(`autoprefixer`)],
       },
     },

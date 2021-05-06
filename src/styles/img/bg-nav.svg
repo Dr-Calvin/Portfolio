@@ -4,5 +4,5 @@
   <stop stop-color="#6460aa" offset="0"></stop>
   <stop stop-color="#0089d0" offset="1"></stop>
 </linearGradient></defs>
-  <rect width="2160" height="776" style="fill:url(#lg-0.6949861471585888)" />
+  <rect width="2160" height="776" style="fill:url(#lg-0.6949861471585888)" opacity="0.7"/>
 </svg>

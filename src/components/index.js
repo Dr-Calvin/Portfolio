@@ -1,6 +1,12 @@
 import Layout from './Layout'
-import BlogPosts from './BlogPosts'
+import PostPreviews from './PostPreviews'
 import Footer from './Footer'
+import Header from './Header'
+import Title from './Title'
 import SEO from './SEO'
+import Icon from './Icon'
+import PostBody from './PostBody'
 
-export { Layout, BlogPosts, SEO }
+export {
+  Layout, PostPreviews, SEO, Footer, Header, Title, Icon, PostBody,
+}

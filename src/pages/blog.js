@@ -1,9 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
 import { withPreview } from 'gatsby-source-prismic'
-import { Layout, BlogPosts } from 'components'
-import waves from '../styles/img/waves.svg'
+import { Layout, PostPreviews } from 'components'
 
 // Query for the Blog Home content in Prismic
 
@@ -50,6 +48,20 @@ export const query = graphql`
                   }
                 }
               }
+              ... on PrismicPostBodyImageWithCaption {
+                id
+                slice_label
+                slice_type
+                primary {
+                  image {
+                    alt
+                    url
+                  }
+                  caption {
+                    raw
+                  }
+                }
+              }
             }
           }
         }
@@ -72,7 +84,7 @@ const Blog = ({ data }) => {
   return (
     <Layout waves="true" title={titleInfo} navigation={prismicNavigation}>
       <div className="xl:container mx-auto px-4">
-        <BlogPosts posts={posts} />
+        <PostPreviews posts={posts} />
       </div>
     </Layout>
   )
