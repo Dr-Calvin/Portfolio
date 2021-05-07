@@ -23,8 +23,10 @@
 </p>
 
 
-# Prismic & Gatsby.js Portfolio and Blog
-> [Gatsby](https://www.gatsbyjs.org/) Portfolio with content articles managed in [Prismic](https://prismic.io)
+
+# My personal Portfolio and Blog
+> Built with [Gatsby](https://www.gatsbyjs.org/) Portfolio with content articles managed in [Prismic](https://prismic.io)
+Available at https://mitchelfollett.design
 
 
 ## Tech Stack

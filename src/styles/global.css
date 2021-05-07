@@ -1641,6 +1641,10 @@ h2 {
   .md\:w-auto {
     width: auto;
   }
+
+  .md\:w-1\/2 {
+    width: 50%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1696,6 +1700,10 @@ h2 {
     .xl\:container {
       max-width: 1536px;
     }
+  }
+
+  .xl\:flex-1 {
+    flex: 1 1 0%;
   }
 
   .xl\:px-20 {

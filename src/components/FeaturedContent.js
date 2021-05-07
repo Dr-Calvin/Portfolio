@@ -19,7 +19,7 @@ const FeaturedContent = ({ featuredPosts, featuredProjects }) => (
         {featuredPosts.map((post, index) => (
           <div
             key={`post-${index}`}
-            className="flex-col flex h-64 md:h-80 lg:h-96 flex-1 flex-wrap"
+            className="flex-col flex h-64 md:h-80 lg:h-96 md:w-1/2 xl:flex-1 flex-wrap"
           >
             <FeaturedPost
               link={post.node.url}
