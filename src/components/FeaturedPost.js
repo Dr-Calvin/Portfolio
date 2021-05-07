@@ -1,17 +1,17 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 
 const FeaturedPost = ({ link, image, title }) => (
   <div className="mb-8 shadow-xl relative overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-4 flex flex-1  lg:mx-6 mx-4 bg-white content-center text-center rounded-xl">
     {image}
-    <a href={link} className="h-full">
+    <Link to={link} className="h-full">
       <div className="absolute overlay opacity-0 hover:opacity-80 h-full w-full m-auto bg-blue-600">
         <div className="absolute text-white text-center top-8 text-3xl px-8 w-full">
           {RichText.asText(title)}
         </div>
       </div>
-    </a>
+    </Link>
   </div>
 )
 export const query = graphql`
