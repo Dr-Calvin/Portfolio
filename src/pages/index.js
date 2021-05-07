@@ -2,8 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { withPreview } from 'gatsby-source-prismic'
 import { Layout, FeaturedContent } from 'components'
-// import nepal from '../components/img/nepal.png'
-// Query for the Blog Home content in Prismic
 
 export const query = graphql`
   query MyQuery {
