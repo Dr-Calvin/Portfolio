@@ -7,10 +7,10 @@ import PostSlices from './PostSlices'
 
 import back from './img/back.png'
 
-const PostBody = ({ blogPost }) => (
-  <div>
-    <div className="container post-header">
-      <div className="back underline lg:-ml-8 ">
+const PostBody = ({ post }) => (
+  <div className="mx-auto container">
+    <div className=" post-header">
+      <div className="back underline 2xl:-ml-8 ">
         <Link to="/blog">
           <img className="w-5 h-5" src={back} alt="backButton" />
           back to list
@@ -18,13 +18,13 @@ const PostBody = ({ blogPost }) => (
       </div>
       <br />
       <h1 className="text-5xl font-sans text-gray-900 mb-12">
-        {RichText.asText(blogPost.title.raw).length !== 0
-          ? RichText.asText(blogPost.title.raw)
+        {RichText.asText(post.title.raw).length !== 0
+          ? RichText.asText(post.title.raw)
           : 'Untitled'}
       </h1>
     </div>
     {/* Go through the slices of the post and render the appropiate one */}
-    <PostSlices slices={blogPost.body} />
+    <PostSlices slices={post.body} />
   </div>
 )
 

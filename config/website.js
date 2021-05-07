@@ -2,12 +2,11 @@ const meta = {
   // Metadata
   // Used by gatsby-config and SEO component
   siteTitle: 'Mitchel Follett - Full Stack Developer',
-  siteDescription:
-    'Hi! Ich heiße Lennart und bin sowohl autodidaktischer als auch leidenschaftlicher Kommunikationsdesigner & Front-End Entwickler. Ich entwerfe, gestalte und entwickle plattformübergreifende Design-Konzepte, um das volle Potential aus deiner Marke herauszuholen.',
+  siteDescription: `Hello, my name is Mitch and I'm a freelance developer/ IT Specialist, based in Birmingham, UK.`,
   siteHeadline: 'Full Stack Developer',
-  siteTitleAlt: 'MitchelFollett',
-  siteShortName: 'MitchelFollett',
-  siteUrl: 'https://www.MitchelFollett.com', // No trailing slash!
+  siteTitleAlt: 'Mitchel Follett',
+  siteShortName: 'MF',
+  siteUrl: 'https://www.mitchelfollett.com', // No trailing slash!
 }
 
 const social = {

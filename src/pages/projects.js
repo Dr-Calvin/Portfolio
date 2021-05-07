@@ -71,7 +71,7 @@ export const query = graphql`
 `
 // Using the queried Blog Home document data, we render the top section
 
-const Projects = ({ data }) => {
+const Projects = ({ data, location }) => {
   if (!data) return null
   // Define the Project Home page & Project post content returned from Prismic
   const projectPage = data.prismicProjecthome.data
@@ -79,7 +79,7 @@ const Projects = ({ data }) => {
   const { prismicNavigation } = data
 
   return (
-    <Layout title={projectPage} waves="true" navigation={prismicNavigation}>
+    <Layout location={location} title={projectPage} waves="true" navigation={prismicNavigation}>
       <div className="xl:container mx-auto px-4">
         <PostPreviews posts={prjx} />
       </div>

@@ -7,11 +7,16 @@ import close from '../images/close-window.png'
 
 const Header = ({ isHomepage, navigation }) => {
   const [showToggle, setShowToggle] = useState(false)
-  const [navColor, setNavColor] = useState('bg-nav py-2')
+  // const [navColor, setNavColor] = useState('bg-nav sticky py-2 bg-opacity-70')
+  const [navLogoWidth, setNavLogoWidth] = useState('w-64')
+  const [hamburgerWidth, setHamburgerWidth] = useState('w-10 h-10')
+  const [navHeight, setNavHeight] = useState('py-3')
 
   useEffect(() => {
     window.onscroll = () => {
-      setNavColor(window.pageYOffset > 300 ? 'py-0  bg-gray-500 sticky ' : 'bg-nav py-2')
+      setNavLogoWidth(window.pageYOffset > 300 ? 'w-44' : 'w-64')
+      setHamburgerWidth(window.pageYOffset > 300 ? 'w-6 h-6' : 'h-10 w-10')
+      setNavHeight(window.pageYOffset > 300 ? 'py-1' : 'py-3')
     }
   }, [])
 
@@ -21,29 +26,22 @@ const Header = ({ isHomepage, navigation }) => {
 
   return (
     <header
-      className={`site-header absolute w-full ${navColor} bg-opacity-70 top-0 z-50 transition
+      className={`site-header sticky h-0 top-0 w-full transition duration-500 ease-in-out z-50 
   ${homepageClass} `}
     >
-      <nav className="flex flex-wrap items-center px-5 justify-between xl:px-20">
+      <nav className="flex flex-wrap bg-nav bg-opacity-85 items-center px-5 justify-between xl:px-20">
         <Link to="/">
-          <img className="-mt-3  logo w-64" src={logo} alt="Website" />
+          <img className={`-mt-3  logo ${navLogoWidth}`} src={logo} alt="Website" />
         </Link>
         <div className="flex md:hidden">
-          <button id="hamburger" type="button" onClick={() => setShowToggle(!showToggle)}>
-            <img
-              alt="o"
-              className={showToggle ? 'hidden' : 'block'}
-              src={open}
-              width="40"
-              height="40"
-            />
-            <img
-              alt="x"
-              className={showToggle ? '' : 'hidden'}
-              src={close}
-              width="40"
-              height="40"
-            />
+          <button
+            id="hamburger"
+            className="py-2 focus:outline-none"
+            type="button"
+            onClick={() => setShowToggle(!showToggle)}
+          >
+            <img alt="o" className={showToggle ? 'hidden' : `${hamburgerWidth}`} src={open} />
+            <img alt="x" className={showToggle ? `${hamburgerWidth}` : 'hidden'} src={close} />
           </button>
         </div>
         <ul
@@ -53,7 +51,7 @@ const Header = ({ isHomepage, navigation }) => {
         >
           {topNav.map((navItem, index) => (
             <li
-              className="block md:inline-block transition-all text-white hover:text-gray-300 px-3 py-3 border-b-2 border-transparent md:hover:border-blue-900"
+              className={`block md:inline-block transition-all text-white hover:text-gray-300 px-3 ${navHeight} border-b-2 border-transparent md:hover:border-blue-900`}
               // eslint-disable-next-line react/no-array-index-key
               key={`link-${index}`}
             >

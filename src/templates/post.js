@@ -66,15 +66,15 @@ export const query = graphql`
 
 // Display the title, date, and content of the Post
 
-const Post = ({ data }) => {
+const Post = ({ data, location }) => {
   if (!data) return null
   // Define the Post content returned from Prismic
   const post = data.prismicPost.data
   const { prismicNavigation } = data
 
   return (
-    <Layout navigation={prismicNavigation}>
-      <PostBody blogPost={post} />
+    <Layout location={location} navigation={prismicNavigation}>
+      <PostBody post={post} />
     </Layout>
   )
 }
