@@ -25,7 +25,10 @@
 
 
 # My personal Portfolio and Blog
-> Built with [Gatsby](https://www.gatsbyjs.org/) Portfolio with content articles managed in [Prismic](https://prismic.io)
+> Built with [Gatsby](https://www.gatsbyjs.org/) 
+
+> Articles managed in [Prismic](https://prismic.io)
+
 Available at https://mitchelfollett.design
 
 
