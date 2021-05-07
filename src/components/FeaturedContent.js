@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import FeaturedPost from './FeaturedPost'
 
 const thumbnailGrabber = (post) => {
@@ -19,7 +20,7 @@ const FeaturedContent = ({ featuredPosts, featuredProjects }) => (
         {featuredPosts.map((post, index) => (
           <div
             key={`post-${index}`}
-            className="flex-col flex h-64 md:h-80 lg:h-96 md:w-1/2 xl:flex-1 flex-wrap"
+            className="flex-col flex h-64 md:h-80 lg:h-96 md:w-1/2 mx-auto xl:flex-1 flex-wrap"
           >
             <FeaturedPost
               link={post.node.url}
@@ -38,7 +39,7 @@ const FeaturedContent = ({ featuredPosts, featuredProjects }) => (
       type="button"
       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
     >
-      Blog
+      <Link to="/blog">Blog </Link>
     </button>
     <div className=" mt-12 w-full mx-auto">
       <div className="flex-row flex-wrap md:flex">
@@ -61,7 +62,7 @@ const FeaturedContent = ({ featuredPosts, featuredProjects }) => (
       type="button"
       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
     >
-      Projects
+      <Link to="/projects">Projects </Link>
     </button>
   </div>
 )

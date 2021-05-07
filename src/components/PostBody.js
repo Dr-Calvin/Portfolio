@@ -7,11 +7,11 @@ import PostSlices from './PostSlices'
 
 import back from './img/back.png'
 
-const PostBody = ({ post }) => (
+const PostBody = ({ post, location }) => (
   <div className="mx-auto container">
     <div className=" post-header">
       <div className="back underline 2xl:-ml-8 ">
-        <Link to="/blog">
+        <Link to={location.pathname.includes('/blog') ? '/blog' : '/projects'}>
           <img className="w-5 h-5" src={back} alt="backButton" />
           back to list
         </Link>

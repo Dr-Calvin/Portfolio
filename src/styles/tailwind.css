@@ -193,7 +193,6 @@
   .bg-wave {
     background: url(./img/waves.svg) left bottom no-repeat;
     background-size: cover;
-    height: 520px;
   }
   .bg-nav {
     background-image: linear-gradient(
@@ -214,5 +213,13 @@
   }
   .unusedClass {
   }
+
+  .h-520 {
+    height: 520px;
+  }
+  .h-360 {
+    height: 360px;
+  }
+
   /* purgecss end ignore */
 }

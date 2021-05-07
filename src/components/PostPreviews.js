@@ -26,13 +26,19 @@ const firstParagraph = (post) => {
 }
 
 const thumbnailGrabber = (post) => {
-  const firstImage = post.body.find((slice) => slice.slice_type === 'image_with_caption')
-  return !firstImage ? null : (
-    <img
-      className="md:w-48 md:h-full w-full mr-0 object-cover"
-      src={firstImage.primary.image.url}
-      alt={firstImage.primary.image.alt}
-    />
+  const firstImage = post.data.body.find((slice) => slice.slice_type === 'image_with_caption')
+  return !firstImage ? (
+    <Link to={post.url}>
+      <div className="md:w-48 md:h-full w-full mr-0 object-cover" />
+    </Link>
+  ) : (
+    <Link to={post.url}>
+      <img
+        className="md:w-48 md:h-full w-full mr-0 object-cover"
+        src={firstImage.primary.image.url}
+        alt={firstImage.primary.image.alt}
+      />
+    </Link>
   )
 }
 
@@ -59,7 +65,7 @@ const PostSummary = ({ post, id }) => {
       <div className=" mx-auto bg-white rounded-xl shadow-md overflow-hidden mb-8">
         <div className="md:flex">
           <div className="md:h-44">
-            <div className="md:w-48 md:h-full">{thumbnailGrabber(post.node.data)}</div>
+            <div className="md:w-48 md:h-full">{thumbnailGrabber(post.node)}</div>
           </div>
           <div className="pb-8 pt-4 px-8 w-full">
             <div className="uppercase tracking-wide font-semibold">

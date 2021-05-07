@@ -1,7 +1,7 @@
 {
-  "name": "gatsbyjs-blog",
-  "description": "Sample blog built with Gatsby.js using Prismic headless CMS",
-  "author": "Prismic",
+  "name": "gatsbyjs-portfolio",
+  "description": "Portfolio showcasing projects",
+  "author": "Mitchel Follett",
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^3.0.4",

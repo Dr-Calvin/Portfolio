@@ -5,7 +5,7 @@ import logo from '../images/brand2.svg'
 import open from '../images/open-window.png'
 import close from '../images/close-window.png'
 
-const Header = ({ isHomepage, navigation }) => {
+const Header = ({ navigation }) => {
   const [showToggle, setShowToggle] = useState(false)
   // const [navColor, setNavColor] = useState('bg-nav sticky py-2 bg-opacity-70')
   const [navLogoWidth, setNavLogoWidth] = useState('w-64')
@@ -21,13 +21,11 @@ const Header = ({ isHomepage, navigation }) => {
   }, [])
 
   if (!navigation) return null
-  const homepageClass = isHomepage ? 'text-red-500' : ''
   const topNav = navigation.data.top_navigation
 
   return (
     <header
-      className={`site-header sticky h-0 top-0 w-full transition duration-500 ease-in-out z-50 
-  ${homepageClass} `}
+      className="site-header sticky h-0 top-0 w-full transition duration-500 ease-in-out z-50"
     >
       <nav className="flex flex-wrap bg-nav bg-opacity-85 items-center px-5 justify-between xl:px-20">
         <Link to="/">

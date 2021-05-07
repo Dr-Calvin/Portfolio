@@ -20,11 +20,9 @@ const htmlSerializer = (type, element, content, children, index) => {
         </Link>
       )
     } else {
-      const target = element.data.target
-        ? { target: element.data.target, rel: 'noopener' }
-        : {}
+      const target = element.data.target ? { target: element.data.target, rel: 'noopener' } : {}
       result = (
-        <a href={url} target={target} key={index}>
+        <a className="linkinpost" href={url} target={target} key={index}>
           {content}
         </a>
       )
@@ -32,14 +30,15 @@ const htmlSerializer = (type, element, content, children, index) => {
     return result
   }
 
+  if (type === Elements.list) {
+    const result = <ul className="list-disc pl-8 pt-4 pb-4">{children}</ul>
+    return result
+  }
+
   // If the image is also a link to a Prismic Document, it will return a <Link> component
   if (type === Elements.image) {
     let result = (
-      <img
-        src={element.url}
-        alt={element.alt || ''}
-        copyright={element.copyright || ''}
-      />
+      <img src={element.url} alt={element.alt || ''} copyright={element.copyright || ''} />
     )
 
     if (element.linkTo) {

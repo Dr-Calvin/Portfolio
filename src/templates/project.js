@@ -62,10 +62,11 @@ const Project = ({ data, location }) => {
   // Define the Post content returned from Prismic
   const project = data.prismicProject.data
   const { prismicNavigation } = data
+  console.log(location)
 
   return (
     <Layout location={location} navigation={prismicNavigation}>
-      <PostBody post={project} />
+      <PostBody post={project} location={location} />
     </Layout>
   )
 }

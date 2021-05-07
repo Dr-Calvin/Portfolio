@@ -74,7 +74,7 @@ const Post = ({ data, location }) => {
 
   return (
     <Layout location={location} navigation={prismicNavigation}>
-      <PostBody post={post} />
+      <PostBody post={post} location={location} />
     </Layout>
   )
 }
