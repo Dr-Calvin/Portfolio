@@ -1106,6 +1106,10 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.mr-8 {
+  margin-right: 2rem;
+}
+
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -1257,6 +1261,10 @@ h2 {
 
 .pr-4 {
   padding-right: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .pb-8 {

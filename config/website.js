@@ -6,7 +6,7 @@ const meta = {
   siteHeadline: 'Full Stack Developer',
   siteTitleAlt: 'Mitchel Follett',
   siteShortName: 'MF',
-  siteUrl: 'https://www.mitchelfollett.com', // No trailing slash!
+  siteUrl: 'https://mitchelfollett.design', // No trailing slash!
 }
 
 const social = {

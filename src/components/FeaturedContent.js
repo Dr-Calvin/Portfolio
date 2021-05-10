@@ -31,13 +31,13 @@ const FeaturedContent = ({ featuredPosts, featuredProjects }) => (
         ))}
       </div>
     </div>
-    <div>
+    <div className="ml-8 mr-8">
       I enjoy writing about the design process and many other topics, you can read some articles in
       my blog.
     </div>
     <button
       type="button"
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-8 mr-8 rounded-full"
     >
       <Link to="/blog">Blog </Link>
     </button>
@@ -57,10 +57,10 @@ const FeaturedContent = ({ featuredPosts, featuredProjects }) => (
         ))}
       </div>
     </div>
-    <div>Check out some of my recent projects</div>
+    <div className="ml-8 mr-8">Check out some of my recent projects</div>
     <button
       type="button"
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+      className="bg-blue-500 ml-8 mr-8 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
     >
       <Link to="/projects">Projects </Link>
     </button>
